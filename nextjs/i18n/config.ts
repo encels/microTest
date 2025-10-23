@@ -26,4 +26,4 @@ export const I18N_LANGUAGES: Language[] = [
   },
 ];
 
-export const namespaces = ['common', 'pages'];
+export const namespaces = ['common', 'pages', 'forms'];

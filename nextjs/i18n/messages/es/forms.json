@@ -1,0 +1,23 @@
+{
+  "policies": {
+    "create_policy": {
+      "form_steps": {
+        "step_titles": {
+          "basic_info": "Información básica",
+          "insured_data": "Datos del asegurado",
+          "coverages_conditions": "Coberturas y condiciones"
+        },
+        "step_placeholders": {
+          "basic_info": "Paso 1 — Información básica",
+          "insured_data": "Paso 2 — Datos del asegurado",
+          "coverages_conditions": "Paso 3 — Coberturas y condiciones"
+        },
+        "step_fields": {
+          "basic_info": "tipo de póliza, nombre, descripción, monto base, moneda, vigencia",
+          "insured_data": "nombre, documento, fecha de nacimiento, email, teléfono, país/ciudad",
+          "coverages_conditions": "nivel de cobertura, beneficios adicionales, deducible, comentarios"
+        }
+      }
+    }
+  }
+}

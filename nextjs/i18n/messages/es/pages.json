@@ -58,6 +58,12 @@
       "header_from_usd": "Desde (USD)",
       "search_placeholder": "Buscar pólizas",
       "create_button": "Crear póliza"
+    },
+    "create_policy": {
+      "title": "Crear póliza",
+      "cta_labels": {
+        "create": "Crear póliza"
+      }
     }
   }
 }

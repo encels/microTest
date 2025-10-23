@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from 'react';
 import Image from 'next/image';
-import { redirect } from 'next/navigation';
+import { redirect, useRouter } from 'next/navigation';
 import { useQuery } from '@tanstack/react-query';
 import {
   ColumnDef,
@@ -14,6 +14,7 @@ import {
   useReactTable,
 } from '@tanstack/react-table';
 import { ChevronRight, Plus, Search, X } from 'lucide-react';
+import { ROUTES } from '@/config/routes';
 import { apiFetch } from '@/lib/api';
 import { useTranslation } from '@/hooks/useTranslation';
 import { Button } from '@/components/ui/button';
@@ -229,10 +230,15 @@ export const PoliciesList = () => {
 
   const DataGridToolbar = () => {
     const [inputValue, setInputValue] = useState(searchQuery);
+    const router = useRouter();
 
     const handleSearch = () => {
       setSearchQuery(inputValue);
       setPagination({ ...pagination, pageIndex: 0 });
+    };
+
+    const handleCreatePolicyButtonClick = () => {
+      router.push(ROUTES.POLICIES.children.CREATE_POLICY.path);
     };
 
     return (
@@ -264,10 +270,7 @@ export const PoliciesList = () => {
             )}
           </div>
           {/* Create policy button */}
-          <Button
-            onClick={() => alert('Crear nueva póliza')}
-            disabled={isLoading}
-          >
+          <Button onClick={handleCreatePolicyButtonClick} disabled={isLoading}>
             <Plus />
             {t('policies.list.create_button')}
           </Button>

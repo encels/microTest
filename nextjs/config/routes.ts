@@ -9,6 +9,10 @@ export const ROUTES = {
       RESTORE_POLICY: {
         name: 'policies.restore_policy.title',
       },
+      CREATE_POLICY: {
+        name: 'policies.create_policy.title',
+        path: '/policies/create-policy',
+      },
     },
   },
 };

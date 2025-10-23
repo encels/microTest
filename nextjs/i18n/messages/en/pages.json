@@ -50,6 +50,12 @@
       "header_from_usd": "From (USD)",
       "search_placeholder": "Search policies",
       "create_button": "Create Policy"
+    },
+    "create_policy": {
+      "title": "Create policy",
+      "cta_labels": {
+        "create": "Create policy"
+      }
     }
   }
 }
