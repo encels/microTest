@@ -27,15 +27,13 @@
     }
   },
   "pages": {
-    "home": {
-      "title": "Bienvenido",
-      "description": "Bienvenido a nuestra aplicación"
-    },
-    "account": {
-      "title": "Configuración de cuenta",
-      "notifications": {
-        "title": "Notificaciones",
-        "description": "Gestiona tus preferencias de notificación"
+    "policies": {
+      "title": "Pólizas",
+      "buy_policy": {
+        "title": "Comprar póliza"
+      },
+      "restore_policy": {
+        "title": "Restaurar compra"
       }
     }
   },

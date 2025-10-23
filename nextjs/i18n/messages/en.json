@@ -27,15 +27,13 @@
     }
   },
   "pages": {
-    "home": {
-      "title": "Welcome",
-      "description": "Welcome to our application"
-    },
-    "account": {
-      "title": "Account Settings",
-      "notifications": {
-        "title": "Notifications",
-        "description": "Manage your notification preferences"
+    "policies": {
+      "title": "Policies",
+      "buy_policy": {
+        "title": "Buy policy"
+      },
+      "restore_policy": {
+        "title": "Restore purchase"
       }
     }
   },
