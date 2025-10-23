@@ -1,0 +1,11 @@
+{
+  "policies": {
+    "title": "Pólizas",
+    "buy_policy": {
+      "title": "Comprar póliza"
+    },
+    "restore_policy": {
+      "title": "Restaurar compra"
+    }
+  }
+}

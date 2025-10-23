@@ -1,13 +1,13 @@
 export const ROUTES = {
   POLICIES: {
-    name: 'pages.policies.title',
+    name: 'policies.title',
     children: {
       BUY_POLICY: {
-        name: 'pages.policies.buy_policy.title',
+        name: 'policies.buy_policy.title',
         path: '/policies',
       },
       RESTORE_POLICY: {
-        name: 'pages.policies.restore_policy.title',
+        name: 'policies.restore_policy.title',
       },
     },
   },

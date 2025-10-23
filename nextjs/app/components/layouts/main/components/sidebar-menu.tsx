@@ -20,7 +20,7 @@ import {
 import { Badge } from '@/components/ui/badge';
 
 export function SidebarMenu() {
-  const { t } = useTranslation();
+  const { t } = useTranslation('pages');
   const pathname = usePathname();
 
   // Memoize matchPath to prevent unnecessary re-renders

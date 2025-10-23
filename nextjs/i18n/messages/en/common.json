@@ -1,0 +1,27 @@
+{
+  "buttons": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "add": "Add",
+    "remove": "Remove",
+    "submit": "Submit",
+    "close": "Close"
+  },
+  "labels": {
+    "name": "Name",
+    "email": "Email",
+    "password": "Password",
+    "username": "Username",
+    "phone": "Phone",
+    "address": "Address"
+  },
+  "messages": {
+    "welcome": "Welcome",
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "success": "Operation completed successfully",
+    "confirm": "Are you sure?"
+  }
+}

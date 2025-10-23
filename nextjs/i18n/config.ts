@@ -1,6 +1,8 @@
 // src/config/languages.ts
+
+export type Locale = 'en' | 'es';
 export interface Language {
-  code: string;
+  code: Locale;
   name: string;
   shortName: string;
   direction: 'ltr' | 'rtl';
@@ -16,31 +18,12 @@ export const I18N_LANGUAGES: Language[] = [
     flag: '/media/flags/united-states.svg',
   },
   {
-    code: 'ar',
-    name: 'Arabic',
-    shortName: 'AR',
-    direction: 'rtl',
-    flag: '/media/flags/saudi-arabia.svg',
-  },
-  {
     code: 'es',
     name: 'Spanish',
     shortName: 'ES',
     direction: 'ltr',
     flag: '/media/flags/spain.svg',
   },
-  {
-    code: 'de',
-    name: 'German',
-    shortName: 'DE',
-    direction: 'ltr',
-    flag: '/media/flags/germany.svg',
-  },
-  {
-    code: 'ch',
-    name: 'Chinese',
-    shortName: 'CH',
-    direction: 'ltr',
-    flag: '/media/flags/china.svg',
-  },
 ];
+
+export const namespaces = ['common', 'pages'];

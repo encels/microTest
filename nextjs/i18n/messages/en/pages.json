@@ -1,0 +1,11 @@
+{
+  "policies": {
+    "title": "Policies",
+    "buy_policy": {
+      "title": "Buy policy"
+    },
+    "restore_policy": {
+      "title": "Restore purchase"
+    }
+  }
+}
