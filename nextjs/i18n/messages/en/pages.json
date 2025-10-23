@@ -44,6 +44,12 @@
     "cta_labels": {
       "quote_now": "Quote Now",
       "edit_policy": "Edit Policy"
+    },
+    "list": {
+      "header_policy": "Policy",
+      "header_from_usd": "From (USD)",
+      "search_placeholder": "Search policies",
+      "create_button": "Create Policy"
     }
   }
 }

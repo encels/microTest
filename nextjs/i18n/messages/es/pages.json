@@ -52,6 +52,12 @@
     "cta_labels": {
       "quote_now": "Cotizar Ahora",
       "edit_policy": "Editar Póliza"
+    },
+    "list": {
+      "header_policy": "Póliza",
+      "header_from_usd": "Desde (USD)",
+      "search_placeholder": "Buscar pólizas",
+      "create_button": "Crear póliza"
     }
   }
 }

@@ -2,6 +2,7 @@ import { NextRequest } from 'next/server';
 
 /**
  * apiFetch - universal fetch for dev/prod that prefixes API calls with the correct base URL
+ *            and handles mock responses automatically
  *
  * Usage:
  *   apiFetch('/users', { method: 'GET' })
@@ -11,9 +12,25 @@ export async function apiFetch(
   input: string | Request,
   init?: RequestInit,
 ): Promise<Response> {
-  let url = input;
+  if (input instanceof Request) {
+    return fetch(input, init);
+  }
 
-  // If input is a string and is a relative API path, prefix with base URL
+  let url = input;
+  let mockName: string | null = null;
+
+  try {
+    const u = new URL(input, 'http://local.test');
+    mockName = u.searchParams.get('mock');
+  } catch {
+    // ignore
+  }
+
+  if (mockName) {
+    const mockUrl = `/mock/${mockName}.json`;
+    return fetch(mockUrl, init);
+  }
+
   if (typeof input === 'string') {
     if (input.startsWith('/api/')) {
       // Remove leading slash to avoid double slashes

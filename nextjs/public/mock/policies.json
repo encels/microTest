@@ -1,0 +1,69 @@
+[
+  {
+    "product_name": "HCM Individual",
+    "description": "Sabemos que tu salud es lo más importante y que es la base de tu bienestar. Nuestros planes de Salud Individual están pensados para ofrecerte tranquilidad sin que las preocupaciones médicas te detengan.",
+    "starting_price": 44.0,
+    "currency": "USD",
+    "price_breakdown": null,
+    "image_src": "media/images/placeholder.svg"
+  },
+  {
+    "product_name": "Responsabilidad Civil de Vehículo",
+    "description": "Conduce con confianza. Asegura hoy mismo tu Póliza de Responsabilidad Civil y protégete en cada kilómetro.",
+    "starting_price": null,
+    "currency": null,
+    "price_breakdown": null,
+    "image_src": "media/images/placeholder.svg"
+  },
+  {
+    "product_name": "Funerario",
+    "description": "Enfrentar la pérdida de un ser querido es uno de los momentos más desafiantes de la vida. Permite que nos ocupemos de todos los trámites en este momento tan difícil.",
+    "starting_price": 0.83,
+    "currency": "USD",
+    "price_breakdown": null,
+    "image_src": "media/images/placeholder.svg"
+  },
+  {
+    "product_name": "Combinado de Persona",
+    "description": "Un accidente puede cambiarlo todo en un instante. Con nuestra póliza, te aseguras en cada paso.",
+    "starting_price": 3.48,
+    "currency": "USD",
+    "price_breakdown": {
+      "AMD": 3.48,
+      "AMP": 9.26
+    },
+    "image_src": "media/images/placeholder.svg"
+  },
+  {
+    "product_name": "Vida",
+    "description": "Asegura el futuro de los tuyos. Con nuestra Póliza de Vida, garantizas un respaldo financiero sólido para tu familia, brindándoles estabilidad económica cuando ya no estés.",
+    "starting_price": 0.98,
+    "currency": "USD",
+    "price_breakdown": null,
+    "image_src": "media/images/placeholder.svg"
+  },
+  {
+    "product_name": "Prevención Cáncer Femenino",
+    "description": "Sabemos lo valiosa que es tu salud, por eso, hemos diseñado una póliza de Prevención de Cáncer Femenino que te brinda la tranquilidad y el respaldo necesario para actuar a tiempo.",
+    "starting_price": 6.42,
+    "currency": "USD",
+    "price_breakdown": null,
+    "image_src": "media/images/placeholder.svg"
+  },
+  {
+    "product_name": "Prevención Cáncer Masculino",
+    "description": "Nuestra Póliza de Prevención de Cáncer Masculino está diseñada específicamente para ofrecerte el respaldo y la prevención oportuna.",
+    "starting_price": 5.75,
+    "currency": "USD",
+    "price_breakdown": null,
+    "image_src": "media/images/placeholder.svg"
+  },
+  {
+    "product_name": "Mi Mascota",
+    "description": "Si son parte de la familia, merecen estar asegurados. Nosotros los protegemos en caso de urgencias por enfermedad o accidente.",
+    "starting_price": 4.42,
+    "currency": "USD",
+    "price_breakdown": null,
+    "image_src": "media/images/placeholder.svg"
+  }
+]
