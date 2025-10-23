@@ -6,6 +6,44 @@
     },
     "restore_policy": {
       "title": "Restore purchase"
+    },
+    "products": {
+      "individual_hcm": {
+        "name": "Individual HCM",
+        "description": "We know that your health is the most important thing and that it is the basis of your well-being. Our Individual Health plans are designed to offer you peace of mind without medical worries stopping you."
+      },
+      "vehicle_civil_liability": {
+        "name": "Vehicle Civil Liability",
+        "description": "Drive with confidence. Insure your Civil Liability Policy today and protect yourself on every kilometer."
+      },
+      "funeral": {
+        "name": "Funeral",
+        "description": "Facing the loss of a loved one is one of the most challenging moments in life. Allow us to handle all the procedures in this difficult time."
+      },
+      "personal_combined": {
+        "name": "Personal Combined",
+        "description": "An accident can change everything in an instant. With our policy, you ensure yourself in every step."
+      },
+      "life": {
+        "name": "Life",
+        "description": "Secure the future of your loved ones. With our Life Policy, you guarantee solid financial support for your family, providing them with economic stability when you're no longer here."
+      },
+      "female_cancer_prevention": {
+        "name": "Female Cancer Prevention",
+        "description": "We know how valuable your health is, that's why we have designed a Female Cancer Prevention policy that gives you the peace of mind and support necessary to act in time."
+      },
+      "male_cancer_prevention": {
+        "name": "Male Cancer Prevention",
+        "description": "Our Male Cancer Prevention Policy is specifically designed to offer you the support and timely prevention."
+      },
+      "my_pet": {
+        "name": "My Pet",
+        "description": "If they are part of the family, they deserve to be insured. We protect them in case of emergencies due to illness or accident."
+      }
+    },
+    "cta_labels": {
+      "quote_now": "Quote Now",
+      "edit_policy": "Edit Policy"
     }
   }
 }

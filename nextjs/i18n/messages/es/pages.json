@@ -6,6 +6,52 @@
     },
     "restore_policy": {
       "title": "Restaurar compra"
+    },
+    "products": {
+      "individual_hcm": {
+        "name": "HCM Individual",
+        "description": "Sabemos que tu salud es lo más importante y que es la base de tu bienestar. Nuestros planes de Salud Individual están pensados para ofrecerte tranquilidad sin que las preocupaciones médicas te detengan.",
+        "price_text": "Adquiere tu póliza desde $44 mensual"
+      },
+      "vehicle_civil_liability": {
+        "name": "Responsabilidad Civil de Vehículo",
+        "description": "Conduce con confianza. Asegura hoy mismo tu Póliza de Responsabilidad Civil y protégete en cada kilómetro.",
+        "price_text": null
+      },
+      "funeral": {
+        "name": "Funerario",
+        "description": "Enfrentar la pérdida de un ser querido es uno de los momentos más desafiantes de la vida. Permite que nos ocupemos de todos los trámites en este momento tan difícil.",
+        "price_text": "Adquiere tu póliza desde $0.83 mensual"
+      },
+      "personal_combined": {
+        "name": "Combinado de Persona",
+        "description": "Un accidente puede cambiarlo todo en un instante. Con nuestra póliza, te aseguras en cada paso.",
+        "price_text": "Adquiere tu póliza desde $3.48 (con AMD) y $9.26 (con AMP) mensual"
+      },
+      "life": {
+        "name": "Vida",
+        "description": "Asegura el futuro de los tuyos. Con nuestra Póliza de Vida, garantizas un respaldo financiero sólido para tu familia, brindándoles estabilidad económica cuando ya no estés.",
+        "price_text": "Adquiere tu póliza desde $0.98 mensual (Varía según la edad)"
+      },
+      "female_cancer_prevention": {
+        "name": "Prevención Cáncer Femenino",
+        "description": "Sabemos lo valiosa que es tu salud, por eso, hemos diseñado una póliza de Prevención de Cáncer Femenino que te brinda la tranquilidad y el respaldo necesario para actuar a tiempo",
+        "price_text": "Adquiere tu póliza desde $6.42 mensual"
+      },
+      "male_cancer_prevention": {
+        "name": "Prevención Cáncer Masculino",
+        "description": "Nuestra Póliza de Prevención de Cáncer Masculino está diseñada específicamente para ofrecerte el respaldo y la prevención oportuna.",
+        "price_text": "Adquiere tu póliza desde $5.75 mensual"
+      },
+      "my_pet": {
+        "name": "Mi Mascota",
+        "description": "Si son parte de la familia, merecen estar asegurados. Nosotros los protegemos en caso de urgencias por enfermedad o accidente.",
+        "price_text": "Adquiere tu póliza desde $4.42 mensual"
+      }
+    },
+    "cta_labels": {
+      "quote_now": "Cotizar Ahora",
+      "edit_policy": "Editar Póliza"
     }
   }
 }
