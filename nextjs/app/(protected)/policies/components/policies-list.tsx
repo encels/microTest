@@ -15,7 +15,7 @@ import {
 } from '@tanstack/react-table';
 import { ChevronRight, Plus, Search, X } from 'lucide-react';
 import { ROUTES } from '@/config/routes';
-import { apiFetch } from '@/lib/api';
+import { LocalDB } from '@/lib/local-db';
 import { useTranslation } from '@/hooks/useTranslation';
 import { Button } from '@/components/ui/button';
 import { Card, CardFooter, CardHeader, CardTable } from '@/components/ui/card';
@@ -28,17 +28,28 @@ import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
 import { Skeleton } from '@/components/ui/skeleton';
 
 export type Policy = {
-  product_name: string;
+  id: string;
+  policyName: string;
+  policyType: string;
   description: string;
-  starting_price: number | null;
-  currency: 'USD' | null;
-  price_breakdown: Record<string, number> | null;
-  image_src: string;
+  basePrice: number;
+  validFrom: string;
+  isActive: boolean;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  birthDate: string;
+  country: string;
+  coverageLevel: string;
+  addons: string[];
+  deductible: number;
+  notes: string;
 };
 
 function slugify(name: string) {
   return name
-    .toLowerCase()
+    ?.toLowerCase()
     .normalize('NFD')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/(^-|-$)/g, '');
@@ -55,14 +66,12 @@ export const PoliciesList = () => {
   ]);
   const [searchQuery, setSearchQuery] = useState('');
 
-  // useQuery with local mock
+  // useQuery with local storage
   const { data: policies = [], isLoading } = useQuery({
-    queryKey: ['policies', 'mock=policies'],
+    queryKey: ['policies'],
     queryFn: async (): Promise<Policy[]> => {
-      const res = await apiFetch('/api/policies?mock=policies');
-      if (!res.ok) return []; // si no hay archivo o error => vacío
-      const arr = (await res.json()) as Policy[];
-      return arr;
+      const data = await LocalDB.getAll<Omit<Policy, 'id'>>('policies');
+      return data || [];
     },
     staleTime: Infinity,
     gcTime: 1000 * 60 * 60,
@@ -79,8 +88,12 @@ export const PoliciesList = () => {
     if (q) {
       rows = rows.filter(
         (p) =>
-          p.product_name.toLowerCase().includes(q) ||
-          p.description.toLowerCase().includes(q),
+          p.policyName.toLowerCase().includes(q) ||
+          p.description.toLowerCase().includes(q) ||
+          p.firstName.toLowerCase().includes(q) ||
+          p.lastName.toLowerCase().includes(q) ||
+          p.email.toLowerCase().includes(q) ||
+          p.policyType.toLowerCase().includes(q),
       );
     }
 
@@ -111,15 +124,14 @@ export const PoliciesList = () => {
   }, [filteredSortedData, pagination]);
 
   const handleRowClick = (row: Policy) => {
-    const slug = slugify(row.product_name);
-    redirect(`/policies/${slug}`);
+    redirect(`/policies/${row.id}`);
   };
 
   const columns = useMemo<ColumnDef<Policy>[]>(
     () => [
       {
-        accessorKey: 'product_name',
-        id: 'product_name',
+        accessorKey: 'policyName',
+        id: 'policyName',
         header: ({ column }) => (
           <DataGridColumnHeader
             title={t('policies.list.header_policy')}
@@ -130,34 +142,21 @@ export const PoliciesList = () => {
         cell: ({ row }) => {
           const p = row.original;
           return (
-            <div className="flex items-center gap-3">
-              <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-lg">
-                <Image
-                  src={p.image_src}
-                  alt={p.product_name}
-                  fill
-                  className="object-contain"
-                />
-              </div>
-              <div className="space-y-px">
-                <div className="font-medium text-sm">{p.product_name}</div>
-                <div className="text-muted-foreground text-xs line-clamp-1">
-                  {p.description}
-                </div>
+            <div className="space-y-px">
+              <div className="font-medium text-sm">{p.policyName}</div>
+              <div className="text-muted-foreground text-xs line-clamp-1">
+                {p.description}
               </div>
             </div>
           );
         },
-        size: 360,
+        size: 280,
         meta: {
           headerTitle: t('policies.list.header_policy'),
           skeleton: (
-            <div className="flex items-center gap-3">
-              <Skeleton className="size-10 rounded-lg" />
-              <div className="space-y-1">
-                <Skeleton className="h-4 w-40" />
-                <Skeleton className="h-4 w-72" />
-              </div>
+            <div className="space-y-1">
+              <Skeleton className="h-4 w-40" />
+              <Skeleton className="h-4 w-72" />
             </div>
           ),
         },
@@ -165,25 +164,95 @@ export const PoliciesList = () => {
         enableHiding: false,
       },
       {
-        accessorKey: 'starting_price',
-        id: 'starting_price',
+        accessorKey: 'policyType',
+        id: 'policyType',
         header: ({ column }) => (
           <DataGridColumnHeader
-            title={t('policies.list.header_from_usd')}
+            title="Tipo"
             visibility={true}
             column={column}
           />
         ),
-        cell: ({ row }) =>
-          row.original.starting_price != null ? (
-            <span>${row.original.starting_price!.toFixed(2)}</span>
-          ) : (
-            <span className="text-muted-foreground">-</span>
-          ),
+        cell: ({ row }) => (
+          <span className="capitalize">{row.original.policyType}</span>
+        ),
         size: 120,
         meta: {
-          headerTitle: t('policies.list.header_from_usd'),
+          headerTitle: 'Tipo',
+          skeleton: <Skeleton className="w-20 h-7" />,
+        },
+        enableSorting: true,
+        enableHiding: true,
+      },
+      {
+        accessorKey: 'firstName',
+        id: 'client',
+        header: ({ column }) => (
+          <DataGridColumnHeader
+            title="Cliente"
+            visibility={true}
+            column={column}
+          />
+        ),
+        cell: ({ row }) => (
+          <div className="space-y-px">
+            <div className="font-medium text-sm">
+              {row.original.firstName} {row.original.lastName}
+            </div>
+            <div className="text-muted-foreground text-xs">
+              {row.original.email}
+            </div>
+          </div>
+        ),
+        size: 220,
+        meta: {
+          headerTitle: 'Cliente',
+          skeleton: (
+            <div className="space-y-1">
+              <Skeleton className="h-4 w-32" />
+              <Skeleton className="h-4 w-40" />
+            </div>
+          ),
+        },
+        enableSorting: true,
+        enableHiding: true,
+      },
+      {
+        accessorKey: 'basePrice',
+        id: 'basePrice',
+        header: ({ column }) => (
+          <DataGridColumnHeader
+            title="Precio Base"
+            visibility={true}
+            column={column}
+          />
+        ),
+        cell: ({ row }) => <span>${row.original.basePrice.toFixed(2)}</span>,
+        size: 120,
+        meta: {
+          headerTitle: 'Precio Base',
           skeleton: <Skeleton className="w-16 h-7" />,
+        },
+        enableSorting: true,
+        enableHiding: true,
+      },
+      {
+        accessorKey: 'coverageLevel',
+        id: 'coverageLevel',
+        header: ({ column }) => (
+          <DataGridColumnHeader
+            title="Cobertura"
+            visibility={true}
+            column={column}
+          />
+        ),
+        cell: ({ row }) => (
+          <span className="capitalize">{row.original.coverageLevel}</span>
+        ),
+        size: 120,
+        meta: {
+          headerTitle: 'Cobertura',
+          skeleton: <Skeleton className="w-20 h-7" />,
         },
         enableSorting: true,
         enableHiding: true,
@@ -214,7 +283,7 @@ export const PoliciesList = () => {
     columns,
     data: pagedData,
     pageCount: Math.ceil(filteredSortedData.length / pagination.pageSize),
-    getRowId: (row: Policy) => slugify(row.product_name),
+    getRowId: (row: Policy) => row.id,
     state: { pagination, sorting, columnOrder },
     columnResizeMode: 'onChange',
     onColumnOrderChange: setColumnOrder,
