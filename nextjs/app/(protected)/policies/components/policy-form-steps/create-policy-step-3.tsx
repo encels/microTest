@@ -17,11 +17,13 @@ export function CreatePolicyStep3({
   onPrevious,
   defaultValues,
   isLoading = false,
+  isEditMode = false,
 }: {
   onSubmit: (values: any) => void;
   onPrevious: () => void;
   defaultValues?: any;
   isLoading?: boolean;
+  isEditMode?: boolean;
 }) {
   const { t } = useTranslation('forms');
 
@@ -33,8 +35,12 @@ export function CreatePolicyStep3({
         )}
         submitLabel={
           isLoading
-            ? t('policies.create_policy.buttons.creating_policy')
-            : t('policies.create_policy.buttons.create_policy')
+            ? isEditMode
+              ? 'Actualizando póliza...'
+              : t('policies.create_policy.buttons.creating_policy')
+            : isEditMode
+              ? 'Editar póliza'
+              : t('policies.create_policy.buttons.create_policy')
         }
         schema={Schema}
         defaultValues={defaultValues}

@@ -3,6 +3,7 @@
 import * as React from 'react';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { useQueryClient } from '@tanstack/react-query';
 import { ROUTES } from '@/config/routes';
 import { LocalDB } from '@/lib/local-db';
 import { Card, CardContent } from '@/components/ui/card';
@@ -21,10 +22,21 @@ export type PolicyFormData = PolicyStep1Data &
   PolicyStep2Data &
   PolicyStep3Data;
 
-export function PolicyFormWizard() {
+export interface PolicyFormWizardProps {
+  initialData?: Partial<PolicyFormData>;
+  policyId?: string;
+}
+
+export function PolicyFormWizard({
+  initialData,
+  policyId,
+}: PolicyFormWizardProps) {
   const router = useRouter();
+  const queryClient = useQueryClient();
   const [currentStep, setCurrentStep] = useState(0);
-  const [formData, setFormData] = useState<Partial<PolicyFormData>>({});
+  const [formData, setFormData] = useState<Partial<PolicyFormData>>(
+    initialData || {},
+  );
   const [isLoading, setIsLoading] = useState(false);
 
   const handleStep1Submit = (values: any) => {
@@ -39,10 +51,16 @@ export function PolicyFormWizard() {
 
   const handleStep3Submit = async (values: any) => {
     const finalData = { ...formData, ...values };
+
+    if (policyId) {
+      finalData.id = policyId;
+    }
+
     setIsLoading(true);
 
     try {
       await LocalDB.set('policies', finalData);
+      await queryClient.invalidateQueries({ queryKey: ['policies'] });
       router.push(ROUTES.POLICIES.children.BUY_POLICY.path);
     } catch (error) {
       console.error('Error al guardar la póliza:', error);
@@ -81,6 +99,7 @@ export function PolicyFormWizard() {
             onPrevious={handlePrevious}
             defaultValues={formData}
             isLoading={isLoading}
+            isEditMode={!!policyId}
           />
         );
       default:
