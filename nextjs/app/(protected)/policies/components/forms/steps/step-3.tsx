@@ -3,14 +3,13 @@
  */
 
 import { useMemo } from 'react';
-import { z } from 'zod';
 import { LoaderCircleIcon } from 'lucide-react';
+import { z } from 'zod';
 import useTranslation from '@/hooks/useTranslation';
 import { Button } from '@/components/ui/button';
 import { DynamicForm } from '@/components/form/dynamic-form';
 import { PolicyStep3Data, PolicyStepProps } from '../../../types';
 import { AVAILABLE_ADDONS, COVERAGE_LEVEL_OPTIONS } from '../../../utils';
-
 
 // Schema factory that creates validation schema with translated messages
 // This schema ensures type compatibility with PolicyStep3Data interface
@@ -36,7 +35,8 @@ const createSchema = (t: (key: string) => string) =>
   });
 
 // Type for the step props with explicit typing for PolicyStep3Data
-interface Step3Props extends Omit<PolicyStepProps, 'onSubmit' | 'defaultValues'> {
+interface Step3Props
+  extends Omit<PolicyStepProps, 'onSubmit' | 'defaultValues'> {
   onSubmit: (values: PolicyStep3Data) => void;
   defaultValues?: Partial<PolicyStep3Data>;
   onPrevious?: () => void;
@@ -57,7 +57,7 @@ export function CreatePolicyStep3({
   isEditMode = false,
 }: Step3Props) {
   const { t } = useTranslation('forms');
-  
+
   // Create schema with translated messages that matches PolicyStep3Data interface
   const schema = useMemo(() => createSchema(t), [t]);
 
@@ -70,10 +70,10 @@ export function CreatePolicyStep3({
         submitLabel={
           isLoading
             ? isEditMode
-              ? 'Actualizando póliza...'
+              ? t('policies.create_policy.buttons.updating_policy')
               : t('policies.create_policy.buttons.creating_policy')
             : isEditMode
-              ? 'Editar póliza'
+              ? t('policies.create_policy.buttons.edit_policy')
               : t('policies.create_policy.buttons.create_policy')
         }
         schema={schema}
@@ -85,8 +85,10 @@ export function CreatePolicyStep3({
             type: 'select',
             name: 'coverageLevel',
             label: t('policies.create_policy.form_fields.coverageLevel'),
-            options: COVERAGE_LEVEL_OPTIONS.map(option => ({
-              label: t(`policies.create_policy.form_options.coverageLevels.${option.value}`),
+            options: COVERAGE_LEVEL_OPTIONS.map((option) => ({
+              label: t(
+                `policies.create_policy.form_options.coverageLevels.${option.value}`,
+              ),
               value: option.value,
             })),
           },
@@ -111,7 +113,9 @@ export function CreatePolicyStep3({
                         onChange(Array.from(next));
                       }}
                     >
-                      {t(`policies.create_policy.form_options.addons.${addonKey}`)}
+                      {t(
+                        `policies.create_policy.form_options.addons.${addonKey}`,
+                      )}
                     </Button>
                   );
                 })}
@@ -133,7 +137,7 @@ export function CreatePolicyStep3({
         ]}
         onSubmit={(values) => onSubmit(values as PolicyStep3Data)}
       />
-      
+
       {/* Previous step button */}
       <div className="flex justify-between">
         <Button

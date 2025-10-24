@@ -25,7 +25,7 @@ export interface Policy {
 
 // Enums for type safety
 export type PolicyType = 'vida' | 'salud' | 'vehiculo' | 'mascota';
-export type Country = 'UY' | 'CL' | 'AR';
+export type Country = 'VE' | 'CL' | 'AR';
 export type CoverageLevel = 'basic' | 'premium' | 'total';
 
 // Form data types for each step
@@ -55,7 +55,9 @@ export interface PolicyStep3Data {
 }
 
 // Combined form data type
-export type PolicyFormData = PolicyStep1Data & PolicyStep2Data & PolicyStep3Data;
+export type PolicyFormData = PolicyStep1Data &
+  PolicyStep2Data &
+  PolicyStep3Data;
 
 // Component props interfaces
 export interface PolicyFormWizardProps {
@@ -63,14 +65,6 @@ export interface PolicyFormWizardProps {
   policyId?: string;
 }
 
-export interface PolicyCardProps {
-  description?: string;
-  logo: string;
-  title: string;
-  total: string;
-  star: string;
-  label?: string;
-}
 
 export interface CreatePolicyStepsProps {
   currentStep: number;

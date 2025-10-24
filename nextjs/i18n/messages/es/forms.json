@@ -11,11 +11,6 @@
           "basic_info": "Paso 1 — Información básica",
           "insured_data": "Paso 2 — Datos del asegurado",
           "coverages_conditions": "Paso 3 — Coberturas y condiciones"
-        },
-        "step_fields": {
-          "basic_info": "tipo de póliza, nombre, descripción, monto base, moneda, vigencia",
-          "insured_data": "nombre, documento, fecha de nacimiento, email, teléfono, país/ciudad",
-          "coverages_conditions": "nivel de cobertura, beneficios adicionales, deducible, comentarios"
         }
       },
       "form_fields": {
@@ -44,7 +39,7 @@
           "mascota": "Mascota"
         },
         "countries": {
-          "UY": "Uruguay",
+          "VE": "Venezuela",
           "CL": "Chile",
           "AR": "Argentina"
         },
@@ -63,6 +58,8 @@
         "continue": "Continuar",
         "create_policy": "Crear póliza",
         "creating_policy": "Guardando...",
+        "edit_policy": "Editar póliza",
+        "updating_policy": "Actualizando póliza...",
         "previous": "Anterior",
         "next": "Siguiente"
       },

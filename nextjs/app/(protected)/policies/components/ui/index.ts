@@ -3,5 +3,4 @@
  */
 
 export * from './delete-policy-dialog';
-export * from './policy-card';
 export * from './policy-steps';

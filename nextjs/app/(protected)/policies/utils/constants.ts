@@ -1,8 +1,10 @@
+;
 /**
  * Constants and configuration values for the policies module
  */
 
-import { PolicyType, Country, CoverageLevel } from '../types';
+import { Country, CoverageLevel, PolicyType } from '../types';
+
 
 // Policy type values (labels should be translated using i18n: policies.create_policy.form_options.policyTypes.{value})
 export const POLICY_TYPE_OPTIONS: Array<{ value: PolicyType }> = [
@@ -14,7 +16,7 @@ export const POLICY_TYPE_OPTIONS: Array<{ value: PolicyType }> = [
 
 // Country values (labels should be translated using i18n: policies.create_policy.form_options.countries.{value})
 export const COUNTRY_OPTIONS: Array<{ value: Country }> = [
-  { value: 'UY' },
+  { value: 'VE' },
   { value: 'CL' },
   { value: 'AR' },
 ];

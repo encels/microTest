@@ -11,11 +11,6 @@
           "basic_info": "Step 1 — Basic Information",
           "insured_data": "Step 2 — Insured Data",
           "coverages_conditions": "Step 3 — Coverages and Conditions"
-        },
-        "step_fields": {
-          "basic_info": "policy type, name, description, base amount, currency, validity",
-          "insured_data": "name, document, date of birth, email, phone, country/city",
-          "coverages_conditions": "coverage level, additional benefits, deductible, comments"
         }
       },
       "form_fields": {
@@ -44,7 +39,7 @@
           "mascota": "Pet"
         },
         "countries": {
-          "UY": "Uruguay",
+          "VE": "Venezuela",
           "CL": "Chile",
           "AR": "Argentina"
         },
@@ -63,6 +58,8 @@
         "continue": "Continue",
         "create_policy": "Create Policy",
         "creating_policy": "Saving...",
+        "edit_policy": "Edit Policy",
+        "updating_policy": "Updating...",
         "previous": "Previous",
         "next": "Next"
       },

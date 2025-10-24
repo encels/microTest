@@ -1,3 +1,4 @@
+;
 /**
  * Policy form step 2 - Insured person data
  */
@@ -46,7 +47,7 @@ const createSchema = (t: (key: string) => string) =>
     phone: z.string().optional(),
     birthDate: z.date().optional(),
     country: z
-      .enum(['UY', 'CL', 'AR'], {
+      .enum(['VE', 'CL', 'AR'], {
         errorMap: () => ({
           message: 'policies.create_policy.validation.country.invalid',
         }),
@@ -108,7 +109,7 @@ export function CreatePolicyStep2({
             type: 'phone',
             name: 'phone',
             label: t('policies.create_policy.form_fields.phone'),
-            placeholder: '+598 99 123 456',
+            placeholder: '+584126540044',
           },
           {
             type: 'date',
@@ -119,15 +120,17 @@ export function CreatePolicyStep2({
             type: 'select',
             name: 'country',
             label: t('policies.create_policy.form_fields.country'),
-            options: COUNTRY_OPTIONS.map(option => ({
-              label: t(`policies.create_policy.form_options.countries.${option.value}`),
+            options: COUNTRY_OPTIONS.map((option) => ({
+              label: t(
+                `policies.create_policy.form_options.countries.${option.value}`,
+              ),
               value: option.value,
             })),
           },
         ]}
         onSubmit={(values) => onSubmit(values as PolicyStep2Data)}
       />
-      
+
       {/* Previous step button */}
       <div className="flex justify-start">
         <Button type="button" variant="outline" onClick={onPrevious}>
