@@ -17,6 +17,65 @@
           "insured_data": "nombre, documento, fecha de nacimiento, email, teléfono, país/ciudad",
           "coverages_conditions": "nivel de cobertura, beneficios adicionales, deducible, comentarios"
         }
+      },
+      "form_fields": {
+        "policyName": "Nombre de la póliza",
+        "policyType": "Tipo de póliza",
+        "description": "Descripción",
+        "basePrice": "Monto base (USD)",
+        "validFrom": "Vigencia desde",
+        "isActive": "Póliza activa",
+        "firstName": "Nombre",
+        "lastName": "Apellido",
+        "email": "Email",
+        "phone": "Teléfono",
+        "birthDate": "Fecha de nacimiento",
+        "country": "País",
+        "coverageLevel": "Nivel de cobertura",
+        "addons": "Beneficios adicionales",
+        "deductible": "Deducible (USD)",
+        "notes": "Observaciones"
+      },
+      "form_options": {
+        "policyTypes": {
+          "vida": "Vida",
+          "salud": "Salud",
+          "vehiculo": "Vehículo",
+          "mascota": "Mascota"
+        },
+        "countries": {
+          "UY": "Uruguay",
+          "CL": "Chile",
+          "AR": "Argentina"
+        },
+        "coverageLevels": {
+          "basic": "Básica",
+          "premium": "Premium",
+          "total": "Total"
+        }
+      },
+      "buttons": {
+        "continue": "Continuar",
+        "create_policy": "Crear póliza",
+        "previous": "Anterior",
+        "next": "Siguiente"
+      },
+      "validation": {
+        "policyName": {
+          "min": "El nombre debe tener al menos 2 caracteres"
+        },
+        "basePrice": {
+          "nonnegative": "Debe ser mayor o igual a 0"
+        },
+        "firstName": {
+          "min": "Ingresa un nombre válido"
+        },
+        "lastName": {
+          "min": "Ingresa un apellido válido"
+        },
+        "email": {
+          "invalid": "Email inválido"
+        }
       }
     }
   }

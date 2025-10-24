@@ -17,6 +17,65 @@
           "insured_data": "name, document, date of birth, email, phone, country/city",
           "coverages_conditions": "coverage level, additional benefits, deductible, comments"
         }
+      },
+      "form_fields": {
+        "policyName": "Policy Name",
+        "policyType": "Policy Type",
+        "description": "Description",
+        "basePrice": "Base Amount (USD)",
+        "validFrom": "Valid From",
+        "isActive": "Active Policy",
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "email": "Email",
+        "phone": "Phone",
+        "birthDate": "Birth Date",
+        "country": "Country",
+        "coverageLevel": "Coverage Level",
+        "addons": "Additional Benefits",
+        "deductible": "Deductible (USD)",
+        "notes": "Notes"
+      },
+      "form_options": {
+        "policyTypes": {
+          "vida": "Life",
+          "salud": "Health",
+          "vehiculo": "Vehicle",
+          "mascota": "Pet"
+        },
+        "countries": {
+          "UY": "Uruguay",
+          "CL": "Chile",
+          "AR": "Argentina"
+        },
+        "coverageLevels": {
+          "basic": "Basic",
+          "premium": "Premium",
+          "total": "Total"
+        }
+      },
+      "buttons": {
+        "continue": "Continue",
+        "create_policy": "Create Policy",
+        "previous": "Previous",
+        "next": "Next"
+      },
+      "validation": {
+        "policyName": {
+          "min": "The name must be at least 2 characters long"
+        },
+        "basePrice": {
+          "nonnegative": "Must be greater than or equal to 0"
+        },
+        "firstName": {
+          "min": "Please enter a valid first name"
+        },
+        "lastName": {
+          "min": "Please enter a valid last name"
+        },
+        "email": {
+          "invalid": "Invalid email address"
+        }
       }
     }
   }

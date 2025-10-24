@@ -1,7 +1,7 @@
 'use client';
 
 import useTranslation from '@/hooks/useTranslation';
-import { FormSteps } from '../components/form-steps';
+import { PolicyFormWizard } from '../components/policy-form-wizard';
 
 export default function CreatePolicyPage() {
   const { t } = useTranslation('pages');
@@ -12,7 +12,7 @@ export default function CreatePolicyPage() {
         {t('policies.create_policy.title')}
       </h1>
 
-      <FormSteps currentStep={0} />
+      <PolicyFormWizard />
     </div>
   );
 }

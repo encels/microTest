@@ -13,14 +13,12 @@ interface IStepsItem {
 type IStepsItems = Array<IStepsItem>;
 
 interface StepsProps {
-  /** Índice del paso activo (0-based) */
   currentStep: number;
 }
 
-export function FormSteps({ currentStep }: StepsProps) {
+export function CreatePolicySteps({ currentStep }: StepsProps) {
   const { t } = useTranslation('forms');
 
-  // Pasos para el wizard de creación de póliza (demo)
   const steps: IStepsItems = [
     {
       title: t('policies.create_policy.form_steps.step_titles.basic_info'),
@@ -95,51 +93,6 @@ export function FormSteps({ currentStep }: StepsProps) {
             </Fragment>
           );
         })}
-      </div>
-
-      {/* Área de contenido del paso (solo texto marcador) */}
-      <div className="mx-auto max-w-3xl rounded-2xl border border-border bg-card px-6 py-8">
-        {currentStep === 0 && (
-          <p className="text-sm text-muted-foreground">
-            Aquí va el formulario del{' '}
-            <strong>
-              {t(
-                'policies.create_policy.form_steps.step_placeholders.basic_info',
-              )}
-            </strong>
-            . (Campos simulados:
-            {t('policies.create_policy.form_steps.step_fields.basic_info')})
-          </p>
-        )}
-
-        {currentStep === 1 && (
-          <p className="text-sm text-muted-foreground">
-            Aquí va el formulario del{' '}
-            <strong>
-              {t(
-                'policies.create_policy.form_steps.step_placeholders.insured_data',
-              )}
-            </strong>
-            . (Campos simulados:
-            {t('policies.create_policy.form_steps.step_fields.insured_data')})
-          </p>
-        )}
-
-        {currentStep === 2 && (
-          <p className="text-sm text-muted-foreground">
-            Aquí va el formulario del{' '}
-            <strong>
-              {t(
-                'policies.create_policy.form_steps.step_placeholders.coverages_conditions',
-              )}
-            </strong>
-            . (Campos simulados:{' '}
-            {t(
-              'policies.create_policy.form_steps.step_fields.coverages_conditions',
-            )}
-            )
-          </p>
-        )}
       </div>
     </Container>
   );
