@@ -57,6 +57,7 @@
       "buttons": {
         "continue": "Continuar",
         "create_policy": "Crear póliza",
+        "creating_policy": "Guardando...",
         "previous": "Anterior",
         "next": "Siguiente"
       },

@@ -57,6 +57,7 @@
       "buttons": {
         "continue": "Continue",
         "create_policy": "Create Policy",
+        "creating_policy": "Saving...",
         "previous": "Previous",
         "next": "Next"
       },

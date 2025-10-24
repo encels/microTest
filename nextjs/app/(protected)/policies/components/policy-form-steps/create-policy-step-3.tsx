@@ -16,10 +16,12 @@ export function CreatePolicyStep3({
   onSubmit,
   onPrevious,
   defaultValues,
+  isLoading = false,
 }: {
   onSubmit: (values: any) => void;
   onPrevious: () => void;
   defaultValues?: any;
+  isLoading?: boolean;
 }) {
   const { t } = useTranslation('forms');
 
@@ -29,9 +31,14 @@ export function CreatePolicyStep3({
         title={t(
           'policies.create_policy.form_steps.step_placeholders.coverages_conditions',
         )}
-        submitLabel={t('policies.create_policy.buttons.create_policy')}
+        submitLabel={
+          isLoading
+            ? t('policies.create_policy.buttons.creating_policy')
+            : t('policies.create_policy.buttons.create_policy')
+        }
         schema={Schema}
         defaultValues={defaultValues}
+        disabled={isLoading}
         fields={[
           {
             type: 'select',
@@ -106,7 +113,12 @@ export function CreatePolicyStep3({
         onSubmit={onSubmit}
       />
       <div className="flex justify-between">
-        <Button type="button" variant="outline" onClick={onPrevious}>
+        <Button
+          type="button"
+          variant="outline"
+          onClick={onPrevious}
+          disabled={isLoading}
+        >
           {t('policies.create_policy.buttons.previous')}
         </Button>
       </div>

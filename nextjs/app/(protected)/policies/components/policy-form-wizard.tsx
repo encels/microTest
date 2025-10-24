@@ -25,6 +25,7 @@ export function PolicyFormWizard() {
   const router = useRouter();
   const [currentStep, setCurrentStep] = useState(0);
   const [formData, setFormData] = useState<Partial<PolicyFormData>>({});
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleStep1Submit = (values: any) => {
     setFormData((prev) => ({ ...prev, ...values }));
@@ -38,14 +39,15 @@ export function PolicyFormWizard() {
 
   const handleStep3Submit = async (values: any) => {
     const finalData = { ...formData, ...values };
+    setIsLoading(true);
 
     try {
       await LocalDB.set('policies', finalData);
-
       router.push(ROUTES.POLICIES.children.BUY_POLICY.path);
     } catch (error) {
       console.error('Error al guardar la póliza:', error);
       alert('Error al guardar la póliza. Por favor, intente nuevamente.');
+      setIsLoading(false);
     }
   };
 
@@ -78,6 +80,7 @@ export function PolicyFormWizard() {
             onSubmit={handleStep3Submit}
             onPrevious={handlePrevious}
             defaultValues={formData}
+            isLoading={isLoading}
           />
         );
       default:

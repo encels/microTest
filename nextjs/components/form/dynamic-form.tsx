@@ -94,6 +94,7 @@ export type DynamicFormProps = {
   defaultValues?: Partial<FormValues>;
   className?: string;
   schema?: ZodTypeAny;
+  disabled?: boolean;
 };
 
 function DateButton({
@@ -174,6 +175,7 @@ export function DynamicForm({
   defaultValues,
   className,
   schema,
+  disabled = false,
 }: DynamicFormProps) {
   const computedDefaults = useMemo(() => {
     const obj: Record<string, any> = {};
@@ -206,6 +208,7 @@ export function DynamicForm({
                 name: f.name as any,
                 control: form.control,
               };
+              const isDisabled = disabled || f.disabled;
 
               if (['text', 'number', 'email', 'phone'].includes(f.type)) {
                 const inputType =
@@ -223,7 +226,7 @@ export function DynamicForm({
                           <Input
                             type={inputType}
                             placeholder={f.placeholder}
-                            disabled={f.disabled}
+                            disabled={isDisabled}
                             {...field}
                             onChange={(e) =>
                               field.onChange(
@@ -255,7 +258,7 @@ export function DynamicForm({
                         <FormControl>
                           <Textarea
                             placeholder={f.placeholder}
-                            disabled={f.disabled}
+                            disabled={isDisabled}
                             {...field}
                           />
                         </FormControl>
@@ -279,7 +282,7 @@ export function DynamicForm({
                         <FormLabel>{f.label}</FormLabel>
                         <FormControl>
                           <Select
-                            disabled={f.disabled}
+                            disabled={isDisabled}
                             value={field.value ?? ''}
                             onValueChange={field.onChange}
                           >
@@ -324,7 +327,7 @@ export function DynamicForm({
                           <Switch
                             checked={!!field.value}
                             onCheckedChange={field.onChange}
-                            disabled={f.disabled}
+                            disabled={isDisabled}
                           />
                         </FormControl>
                         <FormMessage />
@@ -349,7 +352,7 @@ export function DynamicForm({
                                 <DateButton
                                   value={field.value}
                                   placeholder={f.placeholder}
-                                  disabled={f.disabled}
+                                  disabled={isDisabled}
                                 />
                               </div>
                             </PopoverTrigger>
@@ -388,7 +391,7 @@ export function DynamicForm({
                           <TimeInput
                             value={field.value || ''}
                             onChange={field.onChange}
-                            disabled={f.disabled}
+                            disabled={isDisabled}
                           />
                         </FormControl>
                         {f.description && (
@@ -447,7 +450,9 @@ export function DynamicForm({
             })}
 
             <div className="flex justify-end pt-2.5">
-              <Button type="submit">{submitLabel}</Button>
+              <Button type="submit" disabled={disabled}>
+                {submitLabel}
+              </Button>
             </div>
           </form>
         </Form>
