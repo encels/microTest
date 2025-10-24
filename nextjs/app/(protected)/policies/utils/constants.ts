@@ -35,16 +35,6 @@ export const AVAILABLE_ADDONS = [
   'home_care',
 ] as const;
 
-
-
-// Table configuration
-export const TABLE_CONFIG = {
-  DEFAULT_PAGE_SIZE: 10,
-  PAGE_SIZE_OPTIONS: [10, 25, 50, 100],
-  DEFAULT_SORT_FIELD: 'policyName' as const,
-  DEFAULT_SORT_DIRECTION: 'asc' as const,
-} as const;
-
 // Form step configuration
 export const FORM_STEPS = {
   BASIC_INFO: 0,

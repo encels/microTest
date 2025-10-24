@@ -1,12 +1,14 @@
+;
 /**
  * Custom hook for managing policies data and operations
  */
 
-import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { useMemo, useState } from 'react';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { LocalDB } from '@/lib/local-db';
 import { Policy, PolicyFilters, PolicySortOptions } from '../types';
-import { API_KEYS, TABLE_CONFIG } from '../utils';
+import { API_KEYS } from '../utils';
+
 
 /**
  * Hook for managing policies list with filtering, sorting, and pagination
