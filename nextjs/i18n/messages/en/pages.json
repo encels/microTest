@@ -29,14 +29,12 @@
       }
     },
     "edit_policy": {
-      "delete_policy": {
-        "title": "Delete Policy",
-        "description": "Are you sure you want to delete the policy",
-        "warning": "This action cannot be undone.",
-        "confirm": "Delete Policy",
-        "cancel": "Cancel",
-        "deleting": "Deleting..."
-      }
+      "title": "Edit Policy",
+      "description": "Are you sure you want to edit the policy",
+      "warning": "This action cannot be undone.",
+      "confirm": "Edit Policy",
+      "cancel": "Cancel",
+      "editing": "Editing..."
     },
     "delete_policy": {
       "title": "Delete Policy",

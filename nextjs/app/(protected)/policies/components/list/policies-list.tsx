@@ -6,15 +6,7 @@
 
 import { useCallback, useMemo, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import {
-  ColumnDef,
-  getCoreRowModel,
-  getFilteredRowModel,
-  getPaginationRowModel,
-  PaginationState,
-  SortingState,
-  useReactTable,
-} from '@tanstack/react-table';
+import { ColumnDef, getCoreRowModel, getFilteredRowModel, getPaginationRowModel, PaginationState, SortingState, useReactTable } from '@tanstack/react-table';
 import { Pencil, Trash2 } from 'lucide-react';
 import { useTranslation } from '@/hooks/useTranslation';
 import { Button } from '@/components/ui/button';
@@ -25,11 +17,12 @@ import { DataGridPagination } from '@/components/ui/data-grid-pagination';
 import { DataGridTable } from '@/components/ui/data-grid-table';
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
 import { Skeleton } from '@/components/ui/skeleton';
-import { Policy } from '../../types';
 import { usePolicies } from '../../hooks';
+import { Policy } from '../../types';
+import { formatCurrency, formatFullName } from '../../utils';
 import { DeletePolicyDialog } from '../ui';
 import { PoliciesToolbar } from './policies-toolbar';
-import { formatCurrency, formatFullName } from '../../utils';
+
 
 /**
  * Main policies list component that displays policies in a table format
@@ -73,21 +66,27 @@ export const PoliciesList = () => {
    * @param policy - The policy to edit
    * @param e - Click event
    */
-  const handleEdit = useCallback((policy: Policy, e: React.MouseEvent) => {
-    e.stopPropagation(); // Prevent row click
-    router.push(`/policies/${policy.id}`);
-  }, [router]);
+  const handleEdit = useCallback(
+    (policy: Policy, e: React.MouseEvent) => {
+      e.stopPropagation(); // Prevent row click
+      router.push(`/policies/${policy.id}`);
+    },
+    [router],
+  );
 
   /**
    * Handle delete action (opens confirmation dialog)
    * @param policy - The policy to delete
    * @param e - Click event
    */
-  const handleDeleteClick = useCallback((policy: Policy, e: React.MouseEvent) => {
-    e.stopPropagation(); // Prevent row click
-    setPolicyToDelete(policy);
-    setDeleteDialogOpen(true);
-  }, []);
+  const handleDeleteClick = useCallback(
+    (policy: Policy, e: React.MouseEvent) => {
+      e.stopPropagation(); // Prevent row click
+      setPolicyToDelete(policy);
+      setDeleteDialogOpen(true);
+    },
+    [],
+  );
 
   /**
    * Handle search query change
@@ -146,7 +145,11 @@ export const PoliciesList = () => {
           />
         ),
         cell: ({ row }) => (
-          <span>{tForms(`policies.create_policy.form_options.policyTypes.${row.original.policyType}`)}</span>
+          <span>
+            {tForms(
+              `policies.create_policy.form_options.policyTypes.${row.original.policyType}`,
+            )}
+          </span>
         ),
         size: 120,
         meta: {
@@ -221,7 +224,11 @@ export const PoliciesList = () => {
           />
         ),
         cell: ({ row }) => (
-          <span>{tForms(`policies.create_policy.form_options.coverageLevels.${row.original.coverageLevel}`)}</span>
+          <span>
+            {tForms(
+              `policies.create_policy.form_options.coverageLevels.${row.original.coverageLevel}`,
+            )}
+          </span>
         ),
         size: 120,
         meta: {
@@ -244,7 +251,7 @@ export const PoliciesList = () => {
                 variant="ghost"
                 className="size-7"
                 onClick={(e) => handleEdit(policy, e)}
-                title="Edit policy"
+                title={t('policies.edit_policy.title')}
               >
                 <Pencil className="size-3.5" />
               </Button>
@@ -253,7 +260,7 @@ export const PoliciesList = () => {
                 variant="ghost"
                 className="size-7 hover:bg-destructive/10 hover:text-destructive"
                 onClick={(e) => handleDeleteClick(policy, e)}
-                title="Delete policy"
+                title={t('policies.delete_policy.title')}
               >
                 <Trash2 className="size-3.5" />
               </Button>

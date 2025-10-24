@@ -13,6 +13,7 @@ import { DeletePolicyDialog, PolicyFormWizard } from '../components';
 import { usePolicy } from '../hooks';
 import { PolicyFormData } from '../types';
 
+
 /**
  * Policy edit page that allows editing and deleting a policy
  */
@@ -80,7 +81,7 @@ export default function PolicyEditPage() {
             variant="destructive"
             onClick={() => setIsDeleteDialogOpen(true)}
           >
-            <Trash2 /> {t('policies.edit_policy.delete_policy.confirm')}
+            <Trash2 /> {t('policies.delete_policy.confirm')}
           </Button>
         </div>
         <PolicyFormWizard

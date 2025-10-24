@@ -29,14 +29,12 @@
       }
     },
     "edit_policy": {
-      "delete_policy": {
-        "title": "Eliminar Póliza",
-        "description": "¿Está seguro que desea eliminar la póliza",
-        "warning": "Esta acción no se puede deshacer.",
-        "confirm": "Eliminar Póliza",
-        "cancel": "Cancelar",
-        "deleting": "Eliminando..."
-      }
+      "title": "Editar Póliza",
+      "description": "¿Está seguro que desea editar la póliza",
+      "warning": "Esta acción no se puede deshacer.",
+      "confirm": "Editar Póliza",
+      "cancel": "Cancelar",
+      "editing": "Editando..."
     },
     "delete_policy": {
       "title": "Eliminar Póliza",
