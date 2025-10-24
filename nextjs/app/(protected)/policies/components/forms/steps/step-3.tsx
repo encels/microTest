@@ -3,7 +3,6 @@
  */
 
 import { useMemo } from 'react';
-import { LoaderCircleIcon } from 'lucide-react';
 import { z } from 'zod';
 import useTranslation from '@/hooks/useTranslation';
 import { Button } from '@/components/ui/button';
@@ -109,7 +108,11 @@ export function CreatePolicyStep3({
                       variant={selected ? 'primary' : 'outline'}
                       onClick={() => {
                         const next = new Set(Array.isArray(value) ? value : []);
-                        selected ? next.delete(addonKey) : next.add(addonKey);
+                        if (selected) {
+                          next.delete(addonKey);
+                        } else {
+                          next.add(addonKey);
+                        }
                         onChange(Array.from(next));
                       }}
                     >
