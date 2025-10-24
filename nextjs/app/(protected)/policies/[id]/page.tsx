@@ -47,6 +47,14 @@ export default function PolicyEditPage() {
           return;
         }
 
+        if (typeof data.birthDate === 'string') {
+          data.birthDate = new Date(data.birthDate);
+        }
+
+        if (typeof data?.validFrom === 'string') {
+          data.validFrom = new Date(data.validFrom);
+        }
+
         setPolicyData(data);
       } catch (err) {
         console.error('Error al cargar la póliza:', err);

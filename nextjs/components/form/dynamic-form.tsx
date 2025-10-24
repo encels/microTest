@@ -316,7 +316,7 @@ export function DynamicForm({
                     key={f.name}
                     {...common}
                     render={({ field }) => (
-                      <FormItem className="flex items-center justify-between rounded-lg border p-3">
+                      <FormItem className="flex flex-row items-center justify-between flex-nowrap rounded-lg border p-3">
                         <div className="space-y-0.5">
                           <FormLabel>{f.label}</FormLabel>
                           {f.description && (
