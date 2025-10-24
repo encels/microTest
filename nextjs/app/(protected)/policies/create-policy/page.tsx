@@ -1,8 +1,15 @@
+/**
+ * Create policy page component
+ */
+
 'use client';
 
 import useTranslation from '@/hooks/useTranslation';
-import { PolicyFormWizard } from '../components/policy-form-wizard';
+import { PolicyFormWizard } from '../components';
 
+/**
+ * Create policy page that displays the policy form wizard
+ */
 export default function CreatePolicyPage() {
   const { t } = useTranslation('pages');
 

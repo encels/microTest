@@ -52,6 +52,11 @@
           "basic": "Básica",
           "premium": "Premium",
           "total": "Total"
+        },
+        "addons": {
+          "legal_assistance": "Asistencia Legal",
+          "international_coverage": "Cobertura Internacional",
+          "home_care": "Atención Domiciliaria"
         }
       },
       "buttons": {
@@ -62,20 +67,49 @@
         "next": "Siguiente"
       },
       "validation": {
+        "common": {
+          "required": "Este campo es obligatorio",
+          "invalid_type": "Tipo de valor inválido",
+          "invalid_enum": "Por favor selecciona una opción válida"
+        },
         "policyName": {
+          "required": "El nombre de la póliza es obligatorio",
           "min": "El nombre debe tener al menos 2 caracteres"
         },
+        "policyType": {
+          "required": "El tipo de póliza es obligatorio",
+          "invalid": "Por favor selecciona un tipo de póliza válido"
+        },
         "basePrice": {
+          "required": "El monto base es obligatorio",
+          "invalid_type": "Debe ser un número válido",
           "nonnegative": "Debe ser mayor o igual a 0"
         },
         "firstName": {
+          "required": "El nombre es obligatorio",
           "min": "Ingresa un nombre válido"
         },
         "lastName": {
+          "required": "El apellido es obligatorio",
           "min": "Ingresa un apellido válido"
         },
         "email": {
+          "required": "El email es obligatorio",
           "invalid": "Email inválido"
+        },
+        "phone": {
+          "invalid": "Formato de teléfono inválido"
+        },
+        "country": {
+          "invalid": "Por favor selecciona un país válido"
+        },
+        "coverageLevel": {
+          "required": "El nivel de cobertura es obligatorio",
+          "invalid": "Por favor selecciona un nivel de cobertura válido"
+        },
+        "deductible": {
+          "invalid_type": "Debe ser un número válido",
+          "nonnegative": "Debe ser mayor o igual a 0"
         }
       }
     }

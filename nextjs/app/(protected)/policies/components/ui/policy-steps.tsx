@@ -1,3 +1,7 @@
+/**
+ * Policy creation steps component showing progress through form steps
+ */
+
 'use client';
 
 import { Fragment } from 'react/jsx-runtime';
@@ -5,20 +9,23 @@ import { FileText, LucideIcon, ShieldCheck, UserRound } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useTranslation } from '@/hooks/useTranslation';
 import { Container } from '@/components/common/container';
+import { CreatePolicyStepsProps } from '../../types';
 
 interface IStepsItem {
   title: string;
   icon: LucideIcon;
 }
+
 type IStepsItems = Array<IStepsItem>;
 
-interface StepsProps {
-  currentStep: number;
-}
-
-export function CreatePolicySteps({ currentStep }: StepsProps) {
+/**
+ * Component that displays the progress steps for policy creation
+ * @param props - Component props
+ */
+export function CreatePolicySteps({ currentStep }: CreatePolicyStepsProps) {
   const { t } = useTranslation('forms');
 
+  // Define the steps configuration
   const steps: IStepsItems = [
     {
       title: t('policies.create_policy.form_steps.step_titles.basic_info'),
@@ -61,6 +68,7 @@ export function CreatePolicySteps({ currentStep }: StepsProps) {
                   state === 'completed' && 'bg-muted/30',
                 )}
               >
+                {/* Completion checkmark */}
                 {isCompleted && (
                   <svg
                     className={cn(
@@ -83,10 +91,12 @@ export function CreatePolicySteps({ currentStep }: StepsProps) {
                   </svg>
                 )}
 
+                {/* Step icon and title */}
                 <Icon className="kt-step-icon size-4" />
                 {step.title}
               </div>
 
+              {/* Step connector line */}
               {index < steps.length - 1 && (
                 <div className="hidden lg:block w-12 h-px border-t border-dashed border-zinc-300 dark:border-zinc-600" />
               )}

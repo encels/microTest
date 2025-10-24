@@ -52,6 +52,11 @@
           "basic": "Basic",
           "premium": "Premium",
           "total": "Total"
+        },
+        "addons": {
+          "legal_assistance": "Legal Assistance",
+          "international_coverage": "International Coverage",
+          "home_care": "Home Care"
         }
       },
       "buttons": {
@@ -62,20 +67,49 @@
         "next": "Next"
       },
       "validation": {
+        "common": {
+          "required": "This field is required",
+          "invalid_type": "Invalid value type",
+          "invalid_enum": "Please select a valid option"
+        },
         "policyName": {
+          "required": "Policy name is required",
           "min": "The name must be at least 2 characters long"
         },
+        "policyType": {
+          "required": "Policy type is required",
+          "invalid": "Please select a valid policy type"
+        },
         "basePrice": {
+          "required": "Base amount is required",
+          "invalid_type": "Must be a valid number",
           "nonnegative": "Must be greater than or equal to 0"
         },
         "firstName": {
+          "required": "First name is required",
           "min": "Please enter a valid first name"
         },
         "lastName": {
+          "required": "Last name is required",
           "min": "Please enter a valid last name"
         },
         "email": {
+          "required": "Email is required",
           "invalid": "Invalid email address"
+        },
+        "phone": {
+          "invalid": "Invalid phone format"
+        },
+        "country": {
+          "invalid": "Please select a valid country"
+        },
+        "coverageLevel": {
+          "required": "Coverage level is required",
+          "invalid": "Please select a valid coverage level"
+        },
+        "deductible": {
+          "invalid_type": "Must be a valid number",
+          "nonnegative": "Must be greater than or equal to 0"
         }
       }
     }

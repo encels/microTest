@@ -58,10 +58,18 @@ export const MENU_SIDEBAR: MenuConfig = [
     icon: ShieldCheck,
     children: [
       {
-        title: ROUTES.POLICIES.children.BUY_POLICY.name,
-        path: ROUTES.POLICIES.children.BUY_POLICY.path,
+        title: ROUTES.POLICIES.children.LIST_POLICY.name,
+        path: ROUTES.POLICIES.children.LIST_POLICY.path,
       },
-      { title: ROUTES.POLICIES.children.RESTORE_POLICY.name, disabled: true },
+      /*{
+        title: ROUTES.POLICIES.children.CREATE_POLICY.name,
+        path: ROUTES.POLICIES.children.CREATE_POLICY.path,
+      },*/
+
+      {
+        title: ROUTES.POLICIES.children.OTHER_OPTION.name,
+        disabled: true,
+      },
     ],
   },
 ];

@@ -2,12 +2,12 @@ export const ROUTES = {
   POLICIES: {
     name: 'policies.title',
     children: {
-      BUY_POLICY: {
-        name: 'policies.buy_policy.title',
+      LIST_POLICY: {
+        name: 'policies.list_policy.title',
         path: '/policies',
       },
-      RESTORE_POLICY: {
-        name: 'policies.restore_policy.title',
+      OTHER_OPTION: {
+        name: 'policies.other_option.title',
       },
       CREATE_POLICY: {
         name: 'policies.create_policy.title',

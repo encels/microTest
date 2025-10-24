@@ -1,8 +1,15 @@
+/**
+ * Main policies page component
+ */
+
 'use client';
 
 import useTranslation from '@/hooks/useTranslation';
 import { PoliciesList } from './components';
 
+/**
+ * Main policies page that displays the list of policies
+ */
 export default function PoliciesPage() {
   const { t } = useTranslation('pages');
 
