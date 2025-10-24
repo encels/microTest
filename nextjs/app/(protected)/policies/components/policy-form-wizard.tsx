@@ -2,6 +2,9 @@
 
 import * as React from 'react';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { ROUTES } from '@/config/routes';
+import { LocalDB } from '@/lib/local-db';
 import { Card, CardContent } from '@/components/ui/card';
 import { Container } from '@/components/common/container';
 import { CreatePolicySteps } from './create-policy-steps';
@@ -19,6 +22,7 @@ export type PolicyFormData = PolicyStep1Data &
   PolicyStep3Data;
 
 export function PolicyFormWizard() {
+  const router = useRouter();
   const [currentStep, setCurrentStep] = useState(0);
   const [formData, setFormData] = useState<Partial<PolicyFormData>>({});
 
@@ -32,10 +36,17 @@ export function PolicyFormWizard() {
     setCurrentStep(2);
   };
 
-  const handleStep3Submit = (values: any) => {
+  const handleStep3Submit = async (values: any) => {
     const finalData = { ...formData, ...values };
-    console.log('Datos finales de la póliza:', finalData);
-    alert('¡Póliza creada exitosamente!');
+
+    try {
+      await LocalDB.set('policies', finalData);
+
+      router.push(ROUTES.POLICIES.children.BUY_POLICY.path);
+    } catch (error) {
+      console.error('Error al guardar la póliza:', error);
+      alert('Error al guardar la póliza. Por favor, intente nuevamente.');
+    }
   };
 
   const handlePrevious = () => {
