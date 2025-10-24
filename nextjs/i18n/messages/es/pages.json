@@ -64,6 +64,14 @@
       "cta_labels": {
         "create": "Crear póliza"
       }
+    },
+    "edit_policy": {
+      "delete_policy": {
+        "title": "Eliminar póliza",
+        "description": "Esta acción no se puede deshacer. ¿Estás seguro de que quieres eliminar esta póliza?",
+        "confirm": "Eliminar",
+        "cancel": "Cancelar"
+      }
     }
   }
 }
